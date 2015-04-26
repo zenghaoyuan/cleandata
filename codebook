@@ -1,1 +1,23 @@
-
+        variablename:  the variable names in feature.txt
+        activityname: the activity name in activity_labels.txt
+        testdata:   the test data in X_test.txt
+        testsubject: the test corresponding activity in y_test.txt
+        testperson: the test corresponding person in subject_test.txt
+        traindata:   the train data in X_train.txt
+        trainsubject: the train  corresponding activity in y_train.txt
+        trainperson: the train corresponding person in subject_train.txt
+        testrawdata: the combined dataset about test
+        trainrawdata: the combined dataset about train
+        rawdata:the dataset we want in step 1
+        index1: the corresponding columns that are relate to the mean for each measurement
+        index2: the corresponding columns that are relate to the stand deviation for each measurement
+        index:the actual columns we need in step 2
+        betterdata:the dataset we want in step 4
+        label: the names of activities
+        activity：a dataframe to map the number denoted activity into the real activity name
+        vec： the number denoted activity in dataset
+        x: the correponding real activity name we want
+        puredata: the numeric data in betterdata
+        finaldata: the non-numeric data in betterdata
+        meandata: the dataset to store meanvalue
+        outcome:the result in step 5
