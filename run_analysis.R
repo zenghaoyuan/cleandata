@@ -1,3 +1,41 @@
 run_analysis<-function(directory){
-        good
+        setwd(directory);
+        library(dplyr);
+        variablename<-read.table("./features.txt");
+        activityname<-read.table("./activity_labels.txt");
+        testdata<-read.table("./test/X_test.txt");
+        testsubject<-read.table("./test/y_test.txt");
+        testperson<-read.table("./test/subject_test.txt");
+        traindata<-read.table("./train/X_train.txt");
+        trainsubject<-read.table("./train/y_train.txt");
+        trainperson<-read.table("./train/subject_train.txt");
+        testperson<-rename(testperson,subject=V1);
+        trainperson<-rename(trainperson,subject=V1);
+        testsubject<-rename(testsubject,activity=V1);
+        trainsubject<-rename(trainsubject,activity=V1);
+        testrawdata<-cbind(testperson,testsubject,testdata);
+        trainrawdata<-cbind(trainperson,trainsubject,traindata);
+        rawdata<-rbind(testrawdata,trainrawdata);
+        name<-unlist(select(variablename,V2),use.name=FALSE);
+        name<-as.character(name);
+        colnames(rawdata)<-c("subject","activity",name);
+        index1<-grep("mean",names(rawdata));
+        index2<-grep("std",names(rawdata));
+        index<-sort(c(1,2,index1,index2));
+        betterdata<-rawdata[,index];
+        label<-as.character(activityname[,2]);
+        activity<-data.frame("activitylabel"=label);
+        vec<-betterdata[,2];
+        x<-activity$activitylabel[vec];
+        betterdata$activity<-as.character(x);
+        puredata<-select(betterdata,-(1:2));
+        finaldata<-data.frame(subject=rep(1:30,each=6),activity=rep(label,30));
+        meandata<-puredata;
+        for(i in 1:30){
+                for(j in 1:6){
+                        meandata[6*(i-1)+j,]<-colMeans(puredata[rawdata[,1]==i&rawdata[,2]==j,]);
+                }
+        }
+        outcome<-cbind(finaldata,meandata[1:180,]);
+        return(outcome);
 }
