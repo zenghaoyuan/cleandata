@@ -1,5 +1,5 @@
 #　 explanation about run_analysis.R
-  First,read related data into R.
+  First,read related data into R. I use directory to denote where you store the downloaded and unzipped file.
   
   You should use a text editor to grasp a general idea of what the data look like combined with feature.txt which tells you what variable the specific number corresponds to. If you understand the data correctly,then you should know how to merge them.
   
