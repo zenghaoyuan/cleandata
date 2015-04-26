@@ -3,7 +3,7 @@
   
   You should use a text editor to grasp a general idea of what the data look like combined with feature.txt which tells you what variable the specific number corresponds to. If you understand the data correctly,then you should know how to merge them.
   
-  Before merging them,the default colnames are something like "V1" "V2".If you merge something without renaming, it would cause some error like duplicated colnames in further steps.So it is bettern that you name some data to tell one from another.
+  Before merging them,the default colnames are something like "V1" "V2".If you merge something without renaming, it would cause some error like duplicated colnames in further steps.So it is better that you name some data to tell one from another.
   
   Next in my function, we get rawdata.We have denoted the first two columns as subject and activity respectively.For convenience,we can rename other columns as well.So I extract the information in feature.txt and use it to rename the rawdata.
 
